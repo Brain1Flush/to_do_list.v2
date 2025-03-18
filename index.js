@@ -166,13 +166,7 @@ document.getElementById('del_button').addEventListener('keydown', function(event
 // Event listeners for input functionality
 
 inputArea.addEventListener('input', () => checkInput())
-addBtn.addEventListener('click', async () => {
-    const inputValue = inputArea.value.trim();
-    if (inputValue) {
-        await checkSpelling(inputValue);
-    }
-    addChore();
-})
+addBtn.addEventListener('click', () => addChore()) // Removed async call to checkSpelling
 deleteBtn.addEventListener('click', () => {
     inputArea.value = ""
     checkInput()
@@ -186,28 +180,3 @@ document.getElementById('reset_link').addEventListener('click', (event) => {
 })
 
 checkInput()
-
-// spellcheck API
-
-async function checkSpelling(text) {
-    try {
-        const response = await fetch('https://api.languagetool.org/v2/check', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams({
-                text: text,
-                language: 'en-GB',
-            }),
-        });
-
-        const result = await response.json();
-        if (result.matches.length > 0) {
-            const suggestions = result.matches.map(match => match.replacements[0]?.value).filter(Boolean);
-            alert(`Possible spelling issues detected. Suggestions: ${suggestions.join(', ')}`);
-        }
-    } catch (error) {
-        console.error('Error checking spelling:', error);
-    }
-}
