@@ -1,0 +1,14 @@
+{
+  "name": "Scrim-s0g09ikslu",
+  "description": "https://scrimba.com/s0g09ikslu/head",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "vite": "latest"
+  },
+  "devDependencies": {}
+}

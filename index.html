@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Choreslist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Concert+One&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <header>
+        <div class="off-screen-menu">
+            <ul>
+                <li><a href="#" id="reset_link">Reset</a></li>
+                <li><a href="https://github.com/Brain1Flush/to_do_list" target="_blank">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/bradley-broekman-5a63702a2" target="_blank">Contact</a></li>
+            </ul>
+        </div>
+        <nav>
+            <div class="ham-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+        <div id="time">
+            
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1 id="main-heading">Choreslist</h1>
+            <div class="input-container">
+                <input id="input_area" type="text" placeholder="Do dishes" maxlength="50" aria-labelledby="main-heading" aria-describedby="input-instructions" >
+                <button id="add_button" aria-label="Add task">-></button>
+                <button id="del_button" aria-label="Delete task">✕</button>
+            </div>
+            <ul id="ul_container" role="list">
+
+            </ul>
+        </div>
+        <div id="input-instructions" class="visually-hidden">Press Enter to add the task</div>
+        <div class="popup" onclick="popUp()">
+            <span class="popuptext" id="myPopup">Input cannot be empty or too short</span>
+        </div>
+    </main>
+    <footer id="footer">
+        <p>Created by <a href="https://github.com/Brain1Flush" target="_blank">@Bradley Broekman</a></p>
+    </footer>
+    <script src="index.js"></script>
+</body>
+
+</html>
