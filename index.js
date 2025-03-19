@@ -65,7 +65,7 @@ function checkInput(){
 function saveTasks() {
     try {
         const tasks = Array.from(document.querySelectorAll('#ul_container > li')).map(li => {
-            return li.childNodes[0].nodeType === Node.TEXT_NODE ? li.childNodes[0].textContent.trim() : "";
+            return li.childNodes[0].nodeType === Node.TEXT_NODE ? li.childNodes[0].textContent.trim() : ""
         });
         localStorage.setItem('chores', JSON.stringify(tasks));
     } catch (error) {
@@ -75,8 +75,8 @@ function saveTasks() {
 
 function loadTasks(){
     try {
-        const tasks = JSON.parse(localStorage.getItem('chores')) || []
-        tasks.forEach(task => createTaskElement(task))
+        const tasks = JSON.parse(localStorage.getItem('chores')) || [] // Tasks are stored as plain strings
+        tasks.forEach(task => createTaskElement(task)) // Pass the task string directly
     } catch (error) {
         console.error('Error loading tasks from localStorage:', error)
     }
@@ -166,7 +166,7 @@ document.getElementById('del_button').addEventListener('keydown', function(event
 // Event listeners for input functionality
 
 inputArea.addEventListener('input', () => checkInput())
-addBtn.addEventListener('click', () => addChore()) // Removed async call to checkSpelling
+addBtn.addEventListener('click', () => addChore())
 deleteBtn.addEventListener('click', () => {
     inputArea.value = ""
     checkInput()
